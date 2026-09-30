@@ -14,16 +14,166 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      complaint_events: {
+        Row: {
+          actor: string
+          complaint_id: string
+          created_at: string
+          id: string
+          note: string | null
+          status: Database["public"]["Enums"]["complaint_status"]
+        }
+        Insert: {
+          actor?: string
+          complaint_id: string
+          created_at?: string
+          id?: string
+          note?: string | null
+          status: Database["public"]["Enums"]["complaint_status"]
+        }
+        Update: {
+          actor?: string
+          complaint_id?: string
+          created_at?: string
+          id?: string
+          note?: string | null
+          status?: Database["public"]["Enums"]["complaint_status"]
+        }
+        Relationships: [
+          {
+            foreignKeyName: "complaint_events_complaint_id_fkey"
+            columns: ["complaint_id"]
+            isOneToOne: false
+            referencedRelation: "complaints"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      complaints: {
+        Row: {
+          action_taken: string | null
+          after_media: Json
+          ai_summary: string | null
+          before_media: Json
+          category: string
+          citizen_confirmed: boolean | null
+          citizen_feedback: string | null
+          code: string | null
+          created_at: string
+          department: string
+          description: string
+          district: string | null
+          id: string
+          latitude: number | null
+          location_text: string | null
+          longitude: number | null
+          media: Json
+          name: string
+          phone: string
+          priority: string
+          resolution_notes: string | null
+          sla_due: string | null
+          status: Database["public"]["Enums"]["complaint_status"]
+          updated_at: string
+          village: string
+        }
+        Insert: {
+          action_taken?: string | null
+          after_media?: Json
+          ai_summary?: string | null
+          before_media?: Json
+          category?: string
+          citizen_confirmed?: boolean | null
+          citizen_feedback?: string | null
+          code?: string | null
+          created_at?: string
+          department?: string
+          description: string
+          district?: string | null
+          id?: string
+          latitude?: number | null
+          location_text?: string | null
+          longitude?: number | null
+          media?: Json
+          name: string
+          phone: string
+          priority?: string
+          resolution_notes?: string | null
+          sla_due?: string | null
+          status?: Database["public"]["Enums"]["complaint_status"]
+          updated_at?: string
+          village: string
+        }
+        Update: {
+          action_taken?: string | null
+          after_media?: Json
+          ai_summary?: string | null
+          before_media?: Json
+          category?: string
+          citizen_confirmed?: boolean | null
+          citizen_feedback?: string | null
+          code?: string | null
+          created_at?: string
+          department?: string
+          description?: string
+          district?: string | null
+          id?: string
+          latitude?: number | null
+          location_text?: string | null
+          longitude?: number | null
+          media?: Json
+          name?: string
+          phone?: string
+          priority?: string
+          resolution_notes?: string | null
+          sla_due?: string | null
+          status?: Database["public"]["Enums"]["complaint_status"]
+          updated_at?: string
+          village?: string
+        }
+        Relationships: []
+      }
+      user_roles: {
+        Row: {
+          id: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Insert: {
+          id?: string
+          role: Database["public"]["Enums"]["app_role"]
+          user_id: string
+        }
+        Update: {
+          id?: string
+          role?: Database["public"]["Enums"]["app_role"]
+          user_id?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      has_role: {
+        Args: {
+          _role: Database["public"]["Enums"]["app_role"]
+          _user_id: string
+        }
+        Returns: boolean
+      }
     }
     Enums: {
-      [_ in never]: never
+      app_role: "admin" | "official"
+      complaint_status:
+        | "submitted"
+        | "received"
+        | "assigned"
+        | "in_progress"
+        | "resolved"
+        | "closed"
+        | "reopened"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -150,6 +300,17 @@ export type CompositeTypes<
 
 export const Constants = {
   public: {
-    Enums: {},
+    Enums: {
+      app_role: ["admin", "official"],
+      complaint_status: [
+        "submitted",
+        "received",
+        "assigned",
+        "in_progress",
+        "resolved",
+        "closed",
+        "reopened",
+      ],
+    },
   },
 } as const
