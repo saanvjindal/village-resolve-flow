@@ -44,7 +44,7 @@ function ReportPage() {
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
   const locate = () => {
-    if (!navigator.geolocation) return toast.error("Location not available on this device");
+    if (!navigator.geolocation) { toast.error("Location not available on this device"); return; }
     setLocating(true);
     navigator.geolocation.getCurrentPosition(
       (p) => {
@@ -63,14 +63,14 @@ function ReportPage() {
     if (!list) return;
     const next = [...files, ...Array.from(list)].slice(0, 4);
     const big = next.find((f) => f.size > 15 * 1024 * 1024);
-    if (big) return toast.error(`${big.name} is larger than 15 MB`);
+    if (big) { toast.error(`${big.name} is larger than 15 MB`); return; }
     setFiles(next);
   };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!/^[0-9+\- ]{10,15}$/.test(form.phone.trim())) return toast.error("Enter a valid 10-digit mobile number");
-    if (form.description.trim().length < 10) return toast.error("Please describe the problem in a little more detail");
+    if (!/^[0-9+\- ]{10,15}$/.test(form.phone.trim())) { toast.error("Enter a valid 10-digit mobile number"); return; }
+    if (form.description.trim().length < 10) { toast.error("Please describe the problem in a little more detail"); return; }
     setBusy(true);
     try {
       const payloadFiles = await Promise.all(files.map(async (f) => ({ name: f.name, type: f.type, base64: await toBase64(f) })));
