@@ -6,10 +6,12 @@ import { CATEGORIES, CATEGORY_KEYS } from "@/lib/departments";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Gram Sunwai — Report village problems, get them fixed" },
+      { title: "GramSetu — Report village problems, get them fixed" },
       { name: "description", content: "Report road, water, electricity and other village problems. Your complaint reaches the right government office automatically." },
-      { property: "og:title", content: "Gram Sunwai — Report village problems, get them fixed" },
+      { property: "og:title", content: "GramSetu — Report village problems, get them fixed" },
       { property: "og:description", content: "Your complaint reaches the right government office automatically. Track it until resolved." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Index,
@@ -87,7 +89,7 @@ function Index() {
       </section>
 
       <footer className="mx-auto max-w-6xl px-4 py-8 text-sm text-muted-foreground">
-        Gram Sunwai · For officials: <Link to="/dashboard" className="font-semibold text-primary hover:underline">sign in to dashboard</Link>
+        GramSetu · For officials: <Link to="/dashboard" className="font-semibold text-primary hover:underline">sign in to dashboard</Link>
       </footer>
     </main>
   );

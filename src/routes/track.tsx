@@ -14,10 +14,12 @@ export const Route = createFileRoute("/track")({
   validateSearch: z.object({ code: z.string().optional() }),
   head: () => ({
     meta: [
-      { title: "Track your complaint — Gram Sunwai" },
+      { title: "Track your complaint — GramSetu" },
       { name: "description", content: "Check the status of your village complaint using your complaint ID and mobile number." },
-      { property: "og:title", content: "Track your complaint — Gram Sunwai" },
+      { property: "og:title", content: "Track your complaint — GramSetu" },
       { property: "og:description", content: "See every step from submission to resolution, with proof of work." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: TrackPage,
