@@ -9,7 +9,7 @@ export function SiteHeader() {
             ग्रा
           </span>
           <span className="leading-tight">
-            <span className="block font-display text-lg font-bold text-primary">Gram Sunwai</span>
+            <span className="block font-display text-lg font-bold text-primary">GramSetu</span>
             <span className="block text-xs text-muted-foreground">Village Grievance Portal</span>
           </span>
         </Link>

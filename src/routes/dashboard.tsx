@@ -3,10 +3,12 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 export const Route = createFileRoute("/dashboard")({
   head: () => ({
     meta: [
-      { title: "Officials dashboard — Gram Sunwai" },
+      { title: "Officials dashboard — GramSetu" },
       { name: "description", content: "Dashboard for government officials to manage village complaints." },
-      { property: "og:title", content: "Officials dashboard — Gram Sunwai" },
+      { property: "og:title", content: "Officials dashboard — GramSetu" },
       { property: "og:description", content: "Manage, update and resolve village complaints." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Dashboard,

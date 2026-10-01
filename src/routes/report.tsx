@@ -12,10 +12,12 @@ import { CATEGORIES, type CategoryKey } from "@/lib/departments";
 export const Route = createFileRoute("/report")({
   head: () => ({
     meta: [
-      { title: "Report a problem — Gram Sunwai" },
+      { title: "Report a problem — GramSetu" },
       { name: "description", content: "Register a complaint about roads, water, electricity, sanitation, health, farming or schemes in your village." },
-      { property: "og:title", content: "Report a problem — Gram Sunwai" },
+      { property: "og:title", content: "Report a problem — GramSetu" },
       { property: "og:description", content: "Register a village complaint in two minutes. Get a complaint ID instantly." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: ReportPage,

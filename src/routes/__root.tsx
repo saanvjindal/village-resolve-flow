@@ -74,9 +74,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Gram Sunwai — Village Grievance Portal" },
+      { title: "GramSetu — Village Grievance Portal" },
       { name: "description", content: "Report village problems and track them until they are fixed." },
-      { property: "og:title", content: "Gram Sunwai — Village Grievance Portal" },
+      { property: "og:title", content: "GramSetu — Village Grievance Portal" },
       { property: "og:description", content: "Report village problems and track them until they are fixed." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
